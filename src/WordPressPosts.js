@@ -18,28 +18,26 @@ const WordPressPosts = () => {
   return (
     <div>
       <h2>WordPress Blog Posts</h2>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>
-            {/* Featured Image */}
-            {post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ? (
-              <img
-                src={post._embedded["wp:featuredmedia"][0].source_url}
-                alt={post.title.rendered}
-                style={{ width: "200px", height: "auto", borderRadius: "10px" }}
-              />
-            ) : (
-              <p>No Image Available</p>
-            )}
-            
-            {/* Post Title */}
-            <h3 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-            
-            {/* Post Content */}
-            <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
-          </li>
-        ))}
-      </ul>
+      {posts.map((post) => (
+        <div key={post.id} style={{ marginBottom: "20px" }}>
+          {/* Featured Image */}
+          {post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ? (
+            <img
+              src={post._embedded["wp:featuredmedia"][0].source_url}
+              alt={post.title.rendered}
+              style={{ width: "100px", height: "10px", borderRadius: "10px" }}
+            />
+          ) : (
+            <p></p>
+          )}
+
+          {/* Post Title */}
+          <h3 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+
+          {/* Post Content */}
+          <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+        </div>
+      ))}
     </div>
   );
 };
