@@ -25,7 +25,8 @@ const WordPressPosts = () => {
             <img
               src={post._embedded["wp:featuredmedia"][0].source_url}
               alt={post.title.rendered}
-              style={{ width: "100px", height: "10px", borderRadius: "10px" }}
+
+              
             />
           ) : (
             <p></p>
