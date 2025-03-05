@@ -22,15 +22,21 @@ const WordPressPosts = () => {
         {posts.map((post) => (
           <li key={post.id}>
             {/* Featured Image */}
-            {post._embedded?.["wp:featuredmedia"]?.[0]?.source_url && (
+            {post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ? (
               <img
                 src={post._embedded["wp:featuredmedia"][0].source_url}
                 alt={post.title.rendered}
                 style={{ width: "200px", height: "auto", borderRadius: "10px" }}
               />
+            ) : (
+              <p>No Image Available</p>
             )}
-            {/* Title */}
-            <div dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+            
+            {/* Post Title */}
+            <h3 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+            
+            {/* Post Content */}
+            <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
           </li>
         ))}
       </ul>
