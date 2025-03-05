@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+/* Make images responsive and centered */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Center image on all devices */
+}
+
+/* Ensure images do not exceed their container */
+.container {
+  width: 100%;
+  max-width: 600px; /* Adjust as needed */
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center; /* Center inline elements if needed */
+}
